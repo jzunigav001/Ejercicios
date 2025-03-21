@@ -11,7 +11,7 @@
         <a href="index.html" class="back-button">Salir</a>
 
         <h1>Registro</h1>
-        <form id="registroForm">
+        <form id="registroForm" onsubmit="return irABienvenida()">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" class="input" placeholder="Ingresa tu nombre" required>
             <br><br>
@@ -51,5 +51,14 @@
             <input type="reset" value="Borrar">
         </form>
     </div>
+
+    <script>
+        function irABienvenida() {
+            const nombre = document.getElementById("nombre").value;
+            localStorage.setItem("usuarioNombre", nombre);
+            window.location.href = "bienvenido.html";
+            return false;
+        }
+    </script>
 </body>
 </html>
